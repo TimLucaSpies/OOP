@@ -33,11 +33,11 @@ public class TeeladenView {
     private Label lblKategorie  	 	 	= new Label("Kategorie:");
     private Label lblMitKoffein   		 	= new Label("Mit Koffein:");
     private Label lblEnthalteneKraeuter  	= new Label("Enthaltene Kraeuter:");
-    TextField txtIdentnummer 	 	= new TextField();
-    TextField txtBezeichnung		= new TextField();
-    TextField txtKategorie			= new TextField();
-    TextField txtMitKoffein			= new TextField();
-    TextField txtEnthalteneKraeuter	= new TextField();
+    private TextField txtIdentnummer 	 	= new TextField();
+    private TextField txtBezeichnung		= new TextField();
+    private TextField txtKategorie			= new TextField();
+    private TextField txtMitKoffein			= new TextField();
+    private TextField txtEnthalteneKraeuter	= new TextField();
     private TextArea txtAnzeige  			= new TextArea();
     private Button btnEingabe 		 		= new Button("Eingabe");
     private Button btnAnzeige 		 		= new Button("Anzeige");
@@ -180,5 +180,189 @@ public class TeeladenView {
 		} else {
 			zeigeInformationsfensterAn("Bisher wurde keine Teesorte aufgenommen!");
 		}
+	}
+
+	public TeeladenModel getTm() {
+		return tm;
+	}
+
+	public void setTm(TeeladenModel tm) {
+		this.tm = tm;
+	}
+
+	public TeeladenControl getTc() {
+		return tc;
+	}
+
+	public void setTc(TeeladenControl tc) {
+		this.tc = tc;
+	}
+
+	public Pane getPane() {
+		return pane;
+	}
+
+	public void setPane(Pane pane) {
+		this.pane = pane;
+	}
+
+	public Label getLblEingabe() {
+		return lblEingabe;
+	}
+
+	public void setLblEingabe(Label lblEingabe) {
+		this.lblEingabe = lblEingabe;
+	}
+
+	public Label getLblAnzeige() {
+		return lblAnzeige;
+	}
+
+	public void setLblAnzeige(Label lblAnzeige) {
+		this.lblAnzeige = lblAnzeige;
+	}
+
+	public Label getLblIdentnummer() {
+		return lblIdentnummer;
+	}
+
+	public void setLblIdentnummer(Label lblIdentnummer) {
+		this.lblIdentnummer = lblIdentnummer;
+	}
+
+	public Label getLblBezeichnung() {
+		return lblBezeichnung;
+	}
+
+	public void setLblBezeichnung(Label lblBezeichnung) {
+		this.lblBezeichnung = lblBezeichnung;
+	}
+
+	public Label getLblKategorie() {
+		return lblKategorie;
+	}
+
+	public void setLblKategorie(Label lblKategorie) {
+		this.lblKategorie = lblKategorie;
+	}
+
+	public Label getLblMitKoffein() {
+		return lblMitKoffein;
+	}
+
+	public void setLblMitKoffein(Label lblMitKoffein) {
+		this.lblMitKoffein = lblMitKoffein;
+	}
+
+	public Label getLblEnthalteneKraeuter() {
+		return lblEnthalteneKraeuter;
+	}
+
+	public void setLblEnthalteneKraeuter(Label lblEnthalteneKraeuter) {
+		this.lblEnthalteneKraeuter = lblEnthalteneKraeuter;
+	}
+
+	public TextField getTxtIdentnummer() {
+		return txtIdentnummer;
+	}
+
+	public void setTxtIdentnummer(TextField txtIdentnummer) {
+		this.txtIdentnummer = txtIdentnummer;
+	}
+
+	public TextField getTxtBezeichnung() {
+		return txtBezeichnung;
+	}
+
+	public void setTxtBezeichnung(TextField txtBezeichnung) {
+		this.txtBezeichnung = txtBezeichnung;
+	}
+
+	public TextField getTxtKategorie() {
+		return txtKategorie;
+	}
+
+	public void setTxtKategorie(TextField txtKategorie) {
+		this.txtKategorie = txtKategorie;
+	}
+
+	public TextField getTxtMitKoffein() {
+		return txtMitKoffein;
+	}
+
+	public void setTxtMitKoffein(TextField txtMitKoffein) {
+		this.txtMitKoffein = txtMitKoffein;
+	}
+
+	public TextField getTxtEnthalteneKraeuter() {
+		return txtEnthalteneKraeuter;
+	}
+
+	public void setTxtEnthalteneKraeuter(TextField txtEnthalteneKraeuter) {
+		this.txtEnthalteneKraeuter = txtEnthalteneKraeuter;
+	}
+
+	public TextArea getTxtAnzeige() {
+		return txtAnzeige;
+	}
+
+	public void setTxtAnzeige(TextArea txtAnzeige) {
+		this.txtAnzeige = txtAnzeige;
+	}
+
+	public Button getBtnEingabe() {
+		return btnEingabe;
+	}
+
+	public void setBtnEingabe(Button btnEingabe) {
+		this.btnEingabe = btnEingabe;
+	}
+
+	public Button getBtnAnzeige() {
+		return btnAnzeige;
+	}
+
+	public void setBtnAnzeige(Button btnAnzeige) {
+		this.btnAnzeige = btnAnzeige;
+	}
+
+	public MenuBar getMnbrMenuLeiste() {
+		return mnbrMenuLeiste;
+	}
+
+	public void setMnbrMenuLeiste(MenuBar mnbrMenuLeiste) {
+		this.mnbrMenuLeiste = mnbrMenuLeiste;
+	}
+
+	public Menu getMnDatei() {
+		return mnDatei;
+	}
+
+	public void setMnDatei(Menu mnDatei) {
+		this.mnDatei = mnDatei;
+	}
+
+	public MenuItem getMnItmCsvImport() {
+		return mnItmCsvImport;
+	}
+
+	public void setMnItmCsvImport(MenuItem mnItmCsvImport) {
+		this.mnItmCsvImport = mnItmCsvImport;
+	}
+
+	public MenuItem getMnItmTxtImport() {
+		return mnItmTxtImport;
+	}
+
+	public void setMnItmTxtImport(MenuItem mnItmTxtImport) {
+		this.mnItmTxtImport = mnItmTxtImport;
+	}
+
+	public MenuItem getMnItmCsvExport() {
+		return mnItmCsvExport;
+	}
+
+	public void setMnItmCsvExport(MenuItem mnItmCsvExport) {
+		this.mnItmCsvExport = mnItmCsvExport;
 	}
 }

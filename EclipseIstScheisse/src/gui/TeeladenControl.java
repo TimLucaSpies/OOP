@@ -22,8 +22,8 @@ public class TeeladenControl {
 	// Methoden / Fehler abfangen
 	void nehmeTeeAuf() {
 		try {
-			tm.createTeesorte(Integer.parseInt(tv.txtIdentnummer.getText()), tv.txtBezeichnung.getText(),
-							  tv.txtKategorie.getText(), tv.txtMitKoffein.getText(), tv.txtEnthalteneKraeuter.getText().split(";"));
+			tm.createTeesorte(Integer.parseInt(tv.getTxtIdentnummer().getText()), tv.getTxtBezeichnung().getText(),
+							  tv.getTxtKategorie().getText(), tv.getTxtMitKoffein().getText(), tv.getTxtEnthalteneKraeuter().getText().split(";"));
 			tv.zeigeInformationsfensterAn("Die Teesorte wurde aufgenommen!");
 		} catch (Exception exc) {
 			tv.zeigeFehlermeldungsfensterAn(exc.getMessage());
