@@ -87,10 +87,51 @@ Methoden:
 	zeigeTeeAn() überschrieben wird
 
 
+___________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________
+
+TestKlasse:
+	!!!Beim erstellen Haken bei setUp() und tearDown()
+
+	
+	
+	
+	class TeeladenTest {
+
+	private Teesorte tee;
+	@BeforeEach
+	void setUp() throws Exception {
+		String[] arr = { "IC", "RB" };
+		ArrayList<String> ts = new ArrayList<String>();
+		for (String arten : ts) {
+			ts.add(arten);
+		}
+		this.tee = new Teesorte(2, "3", "3", "3", arr);
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+	}
+
+	@Test
+	void test() {
+		assertFalse(()-> tee.getIdentnummer()==3);
+	}
+	
+	void test2() {
+		assertThrows(IllegalArgumentException.class, ()-> tee = new Teesorte(2, "3", "3", "3", null));
+	}
+
+}
 
 
-
-
+Teesorte
+Konstruktor:
+	       	if(enthalteneKraeuter==null) {
+       		throw new IllegalArgumentException("");
+       	}
+       	setEnthalteneKraeuterAusStringArray(enthalteneKraeuter);
+    }
 
 
 
@@ -123,3 +164,4 @@ Methoden:
 
 
 	
+
