@@ -1,121 +1,125 @@
-package defaul;
+Klasse Teesorte:
+Attribut:	
+private ArrayList <String> enthalteneKraeuter;
 
-public class Testasdasd {
+Konstruktor: 
+public Teesorte(int identnummer, String bezeichnung, String kategorie,
+       	String mitKoffein, String[] enthalteneKraeuter){
+    	this.identnummer = identnummer;
+      	this.bezeichnung = bezeichnung;
+       	this.kategorie = kategorie;
+       	this.mitKoffein = mitKoffein;
+       	setEnthalteneKraeuterAusStringArray(enthalteneKraeuter);
+    }
 
-	public static void main(String[] args) {
-		String eins[] = { "Hallo", "welt" };
-		String ausgabe = "leer";
-		for (int i = 0; i < eins.length; i++) {
-			ausgabe = eins[i] + ", " + ausgabe;
-			System.out.println(ausgabe);
-		}
-
-	}
-
+Methoden:
+private void setEnthalteneKraeuterAusStringArray(String [] kraeuter) {
+    this.enthalteneKraeuter = new ArrayList <String>();
+    	for(int i = 0; i<kraeuter.length;i++) {
+    		this.enthalteneKraeuter.add(kraeuter[i]);
+    	}
 }
 
-Singelton:
-Im Model: 	
-	private static TeeladenModel instanz = null;
-	private TeeladenModel() {
-
+	public ArrayList <String> getEnthalteneKraeuter() {
+		return enthalteneKraeuter;
 	}
 
-	public static TeeladenModel getInstanz() {
-		if (instanz == null) {
-			instanz = new TeeladenModel();
+	public void setEnthalteneKraeuter(ArrayList <String> enthalteneKraeuter) {
+		this.enthalteneKraeuter = enthalteneKraeuter;
+	}
+
+ 	public String getEnthalteneKraeuterAlsString(char trenner) {
+		String ergebnis = "";
+		int i = 0;
+		for(String kraut: enthalteneKraeuter) {
+			ergebnis = ergebnis + kraut+"\n";
 		}
-		return instanz;
+		return ergebnis;
+}
+__________________________________________________________________________________________________________________________
+
+Klasse TeeladenModel:
+Attribut: 	private ArrayList <Teesorte> ts = new ArrayList <Teesorte>();
+
+Methoden: 
+	public void createTeesorte(int identnummer, String bezeichnung, String kategorie, String mitKoffein,
+			String[] enthalteneKraeuter) {
+		Teesorte neu = new Teesorte(identnummer, bezeichnung, kategorie, mitKoffein, enthalteneKraeuter);
+		setTs(neu);
+		notifyObserver();
+}
+		public ArrayList <Teesorte> getTs() {
+		return ts;
 	}
 
-In den Controls:
-	this.tm = TeeladenModel.getInstanz();
-
-________________________________________________________________________________________________________
-Observer:
-Interface Observer: 
-	public void update();
-
-Interface Observable:
-	public void addObserver(Observer obs);
-	public void removeObserver(Observer obs);
-	public void notifiyObserver();
-
-Im Model -> implements Observable:
-	private Vector<Observer> obs = new Vector<Observer>();
-
-	//public void createTeesorte(int identnummer, String bezeichnung, String kategorie, String mitKoffein,
-		//	String[] enthalteneKraeuter) {
-		//this.ts = new Teesorte(identnummer, bezeichnung, kategorie, mitKoffein, enthalteneKraeuter);
-		notifiyObserver();
+	public void setTs(Teesorte ts) {
+		this.ts.add(ts);
 	}
 
-	@Override
-	public void addObserver(Observer obs) {
-		this.obs.add(obs);
-
+	public void schreibeTeesInCsvDatei() throws IOException {
+		BufferedWriter aus = new BufferedWriter(new FileWriter("TeesortenAusgabe.csv", true));
+		for(Teesorte sorte: ts) {
+			aus.write(sorte.gibTeesorteZurueck(';'));
+		}
+		aus.close();
 	}
-
-	@Override
-	public void removeObserver(Observer obs) {
-		this.obs.remove(obs);
-	}
-
-	@Override
-	public void notifiyObserver() {
-		for (Observer obs : obs) {
-			obs.update();
+________________________________________________________________________________________________________________________
+	
+Klassen View:
+Methoden:
+		public void zeigeTeesAn() {
+		if (teesModel.getTs().size() > 0) {
+			String text = "";
+			for(Teesorte ts: teesModel.getTs()) {
+				text = text + ts.gibTeesorteZurueck(' ')+"\n";
+			}
+			txtAnzeigeTees.setText(text);
+		} else {
+			zeigeInformationsfensterAn("Bisher wurde kein Tee aufgenommen!");
 		}
 	}
 
-Views ändern:
-In Views ->  implements Observer
+	mnItmCsvExport.setOnAction(e -> tc.schreibeTeesInCsvDatei());  
 
-	Im Konstruktor:{
-	    	//this.tm = tm;
-    		this.tm.addObserver(this);
-	}	
-		@Override
-	public void update() {
-		zeigeTeesorteAn();
-		
-	}
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Oder Control ändern:
-Im Konstruktor:
-	this.model.addObserver(this);
+!!!Hier Achtung beim Kopieren, da die jeweiligen Controls ander s heißen -> evtl Namen der Attribute anpassen
+!!!Außerdem muss in einem der beiden Controls der Name der Methode angepasst werden, da die Methode zeigeTeesorteAn() von 
+	zeigeTeeAn() überschrieben wird
 
-	@Override
-	public void update() {
-		this.tv.zeigeTeesorteAn();
-	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
