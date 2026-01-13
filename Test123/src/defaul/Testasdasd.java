@@ -22,10 +22,10 @@ public class MotorradModel2 {
 
 	
 	public static MotorradModel2 getInstance() {
-		if (instans == null) {
-			instans = new MotorradModel2();
+		if (instance == null) {
+			instance = new MotorradModel2();
 		}
-		return instans;
+		return instance;
 		
 	}
 	
@@ -188,3 +188,4 @@ public class WarenuebersichtControl implements Observer{
 
 
 }
+
