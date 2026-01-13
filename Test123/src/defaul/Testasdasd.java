@@ -18,7 +18,7 @@ import ownUtil.Observer;
 
 public class MotorradModel2 {
 	private ArrayList<Motorrad2> motorrads = new ArrayList<Motorrad2>() ;
-	private static MotorradModel2 instans = null;
+	private static MotorradModel2 instance = null;
 
 	
 	public static MotorradModel2 getInstance() {
@@ -188,4 +188,5 @@ public class WarenuebersichtControl implements Observer{
 
 
 }
+
 
