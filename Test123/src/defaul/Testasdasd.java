@@ -147,7 +147,7 @@ public class MotorradModel2 {
 			}
 			this.txtAnzeigeMotorad.setText(text.toString());
 		} else {
-			zeigeInformationsfensterAn("Es gibt keine Sporthalle in der csv-Datei!");
+			zeigeInformationsfensterAn("Es gibt keine Entity in der csv-Datei!");
 		}
 	}
 -------------------------------------------------------------------------------------------------------------------------------------------------
@@ -188,5 +188,6 @@ public class WarenuebersichtControl implements Observer{
 
 
 }
+
 
 
