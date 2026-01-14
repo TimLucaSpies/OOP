@@ -75,48 +75,31 @@ public class MotorradModel2 {
         this.autosModel = autosModel;
 	      NEU: this.motModel = motModel;
 
-3.4 Init Methoden und init listener:
-	private void initKomponenten() {
-		// Label
-		initKomponentenTee();
-		initKomponentenMotrad();
-		/*
-		Font font = new Font("Arial", 20);
-		lblAnzeigeAutos.setLayoutX(310);
-		lblAnzeigeAutos.setLayoutY(40);
-		lblAnzeigeAutos.setFont(font);
-		lblAnzeigeAutos.setStyle("-fx-font-weight: bold;");
-		*/
-		pane.getChildren().addAll(lblAnzeigeTees,lblAnzeigeMotorad);
-		// Textbereich
-		/*
-		txtAnzeigeAutos.setEditable(false);
-		txtAnzeigeAutos.setLayoutX(310);
-		txtAnzeigeAutos.setLayoutY(90);
-		txtAnzeigeAutos.setPrefWidth(220);
-		txtAnzeigeAutos.setPrefHeight(185);
-		*/
-		pane.getChildren().addAll(txtAnzeigeTees,txtAnzeigeMotorad);
-		// Button
-		pane.getChildren().addAll(btnAnzeigeTees,btnAnzeigeMotor);
-	}
+	Am Ende des Konstruktors:
+		this.initKomponentenMotorrad();
+		this.initKomponentenTees();
+		this.initListenerMotorrad();
+		this.initListenerTees();
+
 	
-	private void initKomponentenTee() {
-		Font font = new Font("Arial", 20);
-		lblAnzeigeTees.setLayoutX(310); //20
-		lblAnzeigeTees.setLayoutY(40);
-		lblAnzeigeTees.setFont(font);
-		lblAnzeigeTees.setStyle("-fx-font-weight: bold;");
-		txtAnzeigeTees.setEditable(false);
-		txtAnzeigeTees.setLayoutX(310);
-		txtAnzeigeTees.setLayoutY(90);
-		txtAnzeigeTees.setPrefWidth(220);
-		txtAnzeigeTees.setPrefHeight(185);
-		btnAnzeigeTees.setLayoutX(310);
-		btnAnzeigeTees.setLayoutY(290);
-	}
-	
-	private void initKomponentenMotrad() {
+private void initKomponentenTees() {
+	    Font font = new Font("Arial", 20);
+	    lblAnzeigeTees.setLayoutX(310);
+	    lblAnzeigeTees.setLayoutY(40);
+	    lblAnzeigeTees.setFont(font);
+	    lblAnzeigeTees.setStyle("-fx-font-weight: bold;");
+	    txtAnzeigeTees.setEditable(false);
+	    txtAnzeigeTees.setLayoutX(310);
+	    txtAnzeigeTees.setLayoutY(90);
+	    txtAnzeigeTees.setPrefWidth(220);
+	    txtAnzeigeTees.setPrefHeight(185);
+	    btnAnzeigeTees.setLayoutX(310);
+	    btnAnzeigeTees.setLayoutY(290);
+
+	    pane.getChildren().addAll(lblAnzeigeTees, txtAnzeigeTees, btnAnzeigeTees);
+}
+
+	private void initKomponentenMotorrad() {
 		Font font = new Font("Arial", 20);
 		lblAnzeigeMotorad.setLayoutX(20);
 		lblAnzeigeMotorad.setLayoutY(40);
@@ -129,6 +112,8 @@ public class MotorradModel2 {
 		txtAnzeigeMotorad.setPrefHeight(185);
 		btnAnzeigeMotor.setLayoutX(20);
 		btnAnzeigeMotor.setLayoutY(290);
+		pane.getChildren().addAll(lblAnzeigeMotorrad, txtAnzeigeMotorrad, btnAnzeigeMotorrad);
+
 	}
 
 
@@ -188,6 +173,7 @@ public class WarenuebersichtControl implements Observer{
 
 
 }
+
 
 
 
